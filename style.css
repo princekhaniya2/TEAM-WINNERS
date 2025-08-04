@@ -1,0 +1,132 @@
+h1 {
+    color: aquamarine;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    color: black;
+    align-self: auto;
+    
+}
+
+#navbar {
+    height: 50px;
+    background-color: #0f1111;
+    padding-top: 30px;
+    padding-left: 70px;
+    padding-right: 608px;
+    position: fixed;
+    justify-content: space-evenly;
+    display: inline;
+}
+#logo {
+    height: auto 20px;
+    width: auto 20px;
+    margin-right: 50px;
+    margin-left: 50px;
+    
+}
+a {
+    margin-right: 2px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: inline;
+    
+}
+#div {
+    color: white;
+       
+}
+#button1 {
+    width: auto;
+    height: 25px;
+    background-color: black;
+    color: white;
+    border: none;
+}
+footer {
+    text-align: center;
+    background-color: #0f1111;
+    color: white;
+    display: flex;
+    justify-content: center;
+
+}
+p {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 50px;
+
+}
+
+@media (min-width:290px) and (max-width:600px) {
+    div {
+        background-color: aqua;
+    }
+}
+div:hover {
+    background-color: #0f1111;
+    color: aqua;
+
+}
+
+
+#home:hover {
+    transition: none;
+    font-size: 21.5px;
+    transition: all 1s ease-in 0s;
+    transition-property: over;
+}
+#about:hover {
+    transition: none;
+    transition-property: none;
+    transition-duration: 0.4s;
+    transition-timing-function: 0.1s ;
+    font-size: 21.5px;
+}
+#contact:hover {
+    transition: none;
+    transition-property: none;
+    transition-duration: 0.4s;
+    transition-timing-function: 0.1s ;
+    font-size: 21.5px;
+}
+input {
+    height: 25px;
+    background-color: black;
+    color: white;
+    border: none;
+    margin-left: 500px;
+    margin-right: 5px;
+    
+   
+
+ 
+}
+#home {
+    border: 10px;
+    margin-right: 20px;
+    margin-left: 100px;
+    position: fixed;
+    padding-left: 2px;
+    padding-right: 20px;
+    
+   
+}
+#about{
+    border: 10px;
+    margin-right: 20px;
+    margin-left: 180px;
+    position: fixed;
+    padding-left: 2px;
+}
+#contact{
+    border: 10px;
+    margin-right: 20px;
+    margin-left: 283px;
+    position: fixed;
+    
+    
+}

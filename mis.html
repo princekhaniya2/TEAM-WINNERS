@@ -1,342 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Uniglobe Dashboard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student MIS - Dashboard</title>
   <style>
     body {
-      font-family: 'Roboto', Arial, sans-serif;
-      background: #f5f6fa;
       margin: 0;
-      padding: 0;
-    }
-    .container {
-      display: flex;
-      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      color: #333;
     }
     .sidebar {
-      background: #fff;
-      width: 240px;
-      padding: 32px 0 0 0;
-      box-shadow: 2px 0 8px rgba(0,0,0,0.04);
+      height: 100vh;
+      width: 220px;
+      position: fixed;
+      background-color: #2a5d9f;
+      color: white;
+      padding-top: 30px;
+      box-sizing: border-box;
+    }
+    .sidebar .profile {
       display: flex;
-      flex-direction: column;
       align-items: center;
+      padding: 0 15px 20px 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      margin-bottom: 15px;
     }
-    .profile {
-      text-align: center;
-      margin-bottom: 32px;
-    }
-    .profile img {
+    .sidebar .profile img {
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      margin-bottom: 10px;
-      border: 3px solid #1976d2;
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
+      margin-right: 12px;
+      border: 2px solid white;
     }
-    .profile h3 {
-      margin: 0;
-      font-size: 1.1rem;
-      color: #1976d2;
-      font-weight: 700;
+    .sidebar .profile .greeting {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
     }
-    .sidebar nav ul {
+    .sidebar ul {
       list-style: none;
       padding: 0;
-      width: 100%;
+      margin: 0;
     }
-    .sidebar nav ul li {
-      padding: 14px 36px;
-      color: #333;
+    .sidebar ul li {
+      padding: 15px 20px;
       cursor: pointer;
-      border-radius: 20px 0 0 20px;
-      transition: background 0.2s, color 0.2s;
-      font-size: 1rem;
-      margin-bottom: 2px;
+      border-left: 4px solid transparent;
+      transition: all 0.3s ease;
     }
-    .sidebar nav ul li:hover, .sidebar nav ul li.active {
-      background: #e3e6ea;
-      color: #1976d2;
-      font-weight: 700;
+    .sidebar ul li:hover,
+    .sidebar ul li.active {
+      background-color: #1e4979;
+      border-left: 4px solid #ffcc00;
+    }
+    .sidebar ul li a {
+      text-decoration: none;
+      color: white;
+      display: block;
+      font-weight: 600;
     }
     .main-content {
-      flex: 1;
-      padding: 0 40px;
+      margin-left: 220px;
+      padding: 20px 30px;
+      min-height: 100vh;
+      box-sizing: border-box;
+      background: white;
+    }
+    .header {
+      font-size: 28px;
+      font-weight: 700;
+      color: #2a5d9f;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #ff9800;
+      padding-bottom: 5px;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 2.5fr 1.5fr;
+      grid-template-rows: auto 180px;
+      gap: 20px;
+      height: calc(100vh - 80px);
+    }
+
+    .calendar-container {
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 15px;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
-      min-width: 0;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 32px 0 24px 0;
-      border-bottom: 1px solid #e0e0e0;
+      overflow-y: auto;
       background: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      gap: 24px;
     }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .logo img {
-      height: 44px;
-      border-radius: 8px;
-      background: #f5f6fa;
-      padding: 2px;
-    }
-    .logo span {
-      font-size: 1.2rem;
+    .calendar-header {
       font-weight: 700;
-      color: #1976d2;
-      letter-spacing: 0.5px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 6px;
+      color: #2a5d9f;
     }
-    .search-bar {
-      display: flex;
-      align-items: center;
-      background: #f1f3f4;
-      border-radius: 24px;
-      padding: 4px 16px;
-      flex: 1;
-      max-width: 420px;
-      margin: 0 30px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
-    }
-    .search-bar input {
-      border: none;
-      background: transparent;
-      outline: none;
-      font-size: 1rem;
-      padding: 8px;
-      width: 100%;
-    }
-    .search-bar button {
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      color: #1976d2;
-      margin-left: 4px;
-    }
-    .user {
-      font-weight: 500;
-      color: #1976d2;
-      font-size: 1rem;
-      background: #e3e6ea;
-      padding: 8px 18px;
-      border-radius: 20px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
-    }
-    .dashboard {
-      display: flex;
-      gap: 36px;
-      margin-top: 36px;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-    }
-    .card {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      padding: 28px 24px 24px 24px;
-      flex: 1 1 350px;
-      min-width: 340px;
-      margin-bottom: 24px;
-    }
-    .calendar-section h2 {
-      margin-top: 0;
-      color: #1976d2;
-      font-size: 1.3rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-    .calendar {
+    table.calendar {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 14px;
-      background: #f8fafc;
-      border-radius: 10px;
-      overflow: hidden;
+      table-layout: fixed;
+      font-size: 12px;
+      color: #444;
     }
-    .calendar th, .calendar td {
+    table.calendar th,
+    table.calendar td {
+      border: 1px solid #ddd;
+      width: 14.28%;
+      height: 70px;
       text-align: center;
-      padding: 10px 0;
-      border-radius: 6px;
-      font-size: 1rem;
+      vertical-align: top;
+      padding: 5px 3px;
     }
-    .calendar th {
-      background: #f1f3f4;
+    table.calendar th {
+      background-color: #f9f9f9;
       color: #555;
+      font-weight: 600;
+    }
+    table.calendar td:hover {
+      background-color: #f0f4f9;
+      cursor: pointer;
+    }
+    table.calendar td.inactive {
+      color: #ccc;
+    }
+    table.calendar td.today {
+      background-color: #ffcc00;
       font-weight: 700;
+      color: #2a5d9f;
     }
-    .calendar td.highlight {
-      background: #1976d2;
-      color: #fff;
-      font-weight: bold;
+
+    .info-box {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fff;
+      padding: 12px 15px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      font-size: 13px;
+      color: #444;
     }
-    .teacher-section h3 {
+    .info-box h3 {
       margin-top: 0;
-      color: #1976d2;
-      font-size: 1.1rem;
       font-weight: 700;
-      letter-spacing: 0.5px;
+      color: #2a5d9f;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
     }
-    .teacher-card {
-      background: #f5f6fa;
-      border-radius: 10px;
-      padding: 14px 18px;
-      margin-bottom: 16px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
-      font-size: 1rem;
+    .teacher {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-bottom: 10px;
+      background: #f8faff;
     }
-    .teacher-card strong {
-      color: #333;
-      font-size: 1.05rem;
+    .teacher strong {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 3px;
     }
-    .teacher-card a {
-      color: #1976d2;
+    .teacher small {
+      display: block;
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 2px;
+    }
+    .teacher span {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .notice-board {
+      margin-top: 10px;
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 13px;
+      color: #444;
+    }
+    .notice-board th,
+    .notice-board td {
+      border: 1px solid #c8e6c9;
+      padding: 6px 10px;
+      text-align: left;
+    }
+    .notice-board th {
+      background-color: #c8e6c9;
+      font-weight: 700;
+      color: #2e7d32;
+    }
+    .notice-board td a {
+      font-size: 12px;
       text-decoration: none;
-      font-size: 0.97rem;
-    }
-    .teacher-card a:hover {
-      text-decoration: underline;
-    }
-    @media (max-width: 1100px) {
-      .dashboard {
-        flex-direction: column;
-        gap: 24px;
-      }
-      .main-content {
-        padding: 0 10px;
-      }
-      .card {
-        min-width: unset;
-      }
-    }
-    @media (max-width: 700px) {
-      .container {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding: 0;
-        box-shadow: none;
-        border-bottom: 1px solid #e0e0e0;
-      }
-      .profile {
-        display: none;
-      }
-      .sidebar nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        justify-content: flex-start;
-      }
-      .sidebar nav ul li {
-        border-radius: 0;
-        padding: 10px 16px;
-        font-size: 0.95rem;
-        margin-bottom: 0;
-      }
+      color: #2a5d9f;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <aside class="sidebar">
-      <div class="profile">
-        <img src="https://via.placeholder.com/80" alt="Profile">
-        <h3>Hello, Prince khaniya</h3>
-      </div>
-      <nav>
-        <ul>
-          <li class="active">Dashboard</li>
-          <li>Profile</li>
-          <li>Fee</li>
-          <li>Attendance</li>
-          <li>Leave</li>
-          <li>Assignments</li>
-          <li>Assignments Subject Report</li>
-          <li>Assignment Monthly Report</li>
-          <li>ECA</li>
-          <li>Calendar</li>
-        </ul>
-      </nav>
-    </aside>
+  <div class="sidebar">
+    <div class="profile">
+      <img src="pk.jpeg" alt="Profile Photo" />
+      <div class="greeting">Hi Prince</div>
+    </div>
+    <ul>
+      <li class="active"><a href="mis.html">Dashboard</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="assignment.html">Assignment</a></li>
+      <li><a href="attendance.html">Attendance</a></li>
+      <li><a href="leave.html">Leave</a></li>
+      <li class="active"><a href="assignmenttable.html">Assignment Report</a></li>
+    </ul>
+  </div>
 
-    <main class="main-content">
-      <header>
-        <div class="logo">
-          <img src="https://i.imgur.com/VFgqfEG.png" alt="Uniglobe Logo">
-          <span>Uniglobe Secondary School, Kamaladi</span>
-        </div>
-        <form class="search-bar" onsubmit="return false;">
-          <input type="text" placeholder="Search...">
-          <button type="submit" title="Search">🔍</button>
-        </form>
-        <div class="user">
-          <span> Student 
-          </span>
-        </div>
-      </header>
+  <div class="main-content">
+    <div class="header">Student Dashboard</div>
+    <div class="dashboard-grid">
+      <section class="calendar-container" aria-label="Monthly calendar">
+        <div class="calendar-header">August 2025</div>
+        <table class="calendar" role="grid" aria-labelledby="calendarHeader">
+          <thead>
+            <tr>
+              <th scope="col">Sun</th>
+              <th scope="col">Mon</th>
+              <th scope="col">Tue</th>
+              <th scope="col">Wed</th>
+              <th scope="col">Thu</th>
+              <th scope="col">Fri</th>
+              <th scope="col">Sat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="inactive">27</td>
+              <td class="inactive">28</td>
+              <td class="inactive">29</td>
+              <td class="inactive">30</td>
+              <td class="inactive">31</td>
+              <td>1</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+              <td>9</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>11</td>
+              <td>12</td>
+              <td>13</td>
+              <td>14</td>
+              <td>15</td>
+              <td>16</td>
+            </tr>
+            <tr>
+              <td>17</td>
+              <td>18</td>
+              <td>19</td>
+              <td>20</td>
+              <td>21</td>
+              <td>22</td>
+              <td>23</td>
+            </tr>
+            <tr>
+              <td>24</td>
+              <td>25</td>
+              <td>26</td>
+              <td>27</td>
+              <td>28</td>
+              <td>29</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <td>31</td>
+              <td class="inactive">1</td>
+              <td class="inactive">2</td>
+              <td class="inactive">3</td>
+              <td class="inactive">4</td>
+              <td class="inactive">5</td>
+              <td class="inactive">6</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-      <section class="dashboard">
-        <div class="calendar-section card">
-          <h2>August 2025</h2>
-          <table class="calendar">
-            <thead>
-              <tr>
-                <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td>1</td><td class="highlight">2</td></tr>
-              <tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
-              <tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
-              <tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr>
-              <tr><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td></tr>
-              <tr><td>31</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
-            </tbody>
-          </table>
+      <section class="info-box" aria-label="My Subject Teacher">
+        <h3>My Subject Teacher</h3>
+        <div class="teacher">
+          <strong>Com. Nepali</strong>
+          <small>Mr. Yadav Prasad Bhandari - YB</small>
+          <small>ypbhandari@uniglobecollege.edu.np</small>
+          <span>9841595421</span>
         </div>
-
-        <div class="teacher-section card">
-          <h3>📘 My Subject Teacher</h3>
-          <div class="teacher-card">
-            <strong>Com. Nepali</strong><br>
-            Mr. Yadav Prasad Bhandari - YB<br>
-            <a href="mailto:ypdbhandaari@uniglobecollege.edu.np">ypdbhandaari@uniglobecollege.edu.np</a><br>
-            📞 9841595421
-          </div>
-          <div class="teacher-card">
-            <strong>Com. English</strong><br>
-            Dr. Anju Gupta - AG<br>
-            <a href="mailto:ianjugupta19@uniglobecollege.edu.np">ianjugupta19@uniglobecollege.edu.np</a><br>
-            📞 9841436406
-          </div>
-          <div class="teacher-card">
-            <strong>Chemistry</strong><br>
-            Mr. Dinesh KC<br>
-            dinesh<br>
-            📞 9849656366
-          </div>
-          <div class="teacher-card">
-            <strong>Chemistry</strong><br>
-            Mr. Devendra Dhakal
-          </div>
+        <div class="teacher">
+          <strong>Com. English</strong>
+          <small>Dr. Anju Gupta - AG</small>
+          <small>anjugupta19@uniglobecollege.edu.np</small>
+          <span>9841436406</span>
+        </div>
+        <div class="teacher">
+          <strong>Chemistry</strong>
+          <small>Mr. Dinesh KC</small>
+          <small>dinesh</small>
+          <span>9849565366</span>
+        </div>
+        <div class="teacher">
+          <strong>Chemistry</strong>
+          <small>Mr. Devendra Dhakal</small>
+          <small>devendradhakal02</small>
+          <span>9849607215</span>
         </div>
       </section>
-    </main>
+
+      <section class="info-box" aria-label="My Assignments">
+        <h3>My Assignments</h3>
+        <p>No assignments currently.</p>
+      </section>
+    </div>
+
+    <section class="info-box" style="margin-top: 20px;">
+      <h3>Notice Board</h3>
+      <table class="notice-board" aria-label="Notice Board">
+        <thead>
+          <tr>
+            <th style="width: 60px;">S.No</th>
+            <th>Notice Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><a href="#">Old Questions</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </div>
 </body>
+</html>

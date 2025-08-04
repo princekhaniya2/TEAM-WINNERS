@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment Summary</title>
+  <style>
+    body {
+      font-family:Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #2a5d9f;
+      color: white;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 20px;
+    }
+
+    .sidebar img {
+      display: block;
+      margin: 0 auto;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar ul li {
+      width: 100%;
+    }
+
+    .menu-link {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      font-size: 15px;
+    }
+
+    .menu-link:hover {
+      background-color: #002244;
+    }
+
+    .menu-link.active {
+      border-left: 4px solid orange;
+      background-color: #002244;
+    }
+
+    .main {
+      margin-left: 220px;
+      padding: 30px;
+    }
+
+    .main h1 {
+      color: #1f4e79;
+      border-bottom: 3px solid orange;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+
+    .assignment-date {
+      background-color: white;
+      border-left: 6px solid #1f4e79;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .assignment-date h3 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f0f0f0;
+    }
+
+    td:last-child {
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+<div class="sidebar">
+  <img src="pk.jpeg" alt="Profile Photo">
+  <h2>Hi Prince</h2>
+  <ul>
+    <li><a href="mis.html" class="menu-link">Dashboard</a></li>
+    <li><a href="profile.html" class="menu-link">Profile</a></li>
+    <li><a href="assignment.html" class="menu-link">Assignment</a></li>
+    <li><a href="attendance.html" class="menu-link">Attendance</a></li>
+    <li><a href="leave.html" class="menu-link">Leave</a></li>
+    <li><a href="assignmenttable.html" class="menu-link active">Assignment Report</a></li>
+  </ul>
+</div>
+
+<div class="main">
+  <h1>Assignment Summary</h1>
+
+  <div class="assignment-date">
+    <h3>August 2, 2025</h3>
+    <table>
+      <tr><th>Subject</th><th>Title</th><th>Submitted</th></tr>
+      <tr><td>Chemistry (2071)</td><td>Manager</td><td>✔️</td></tr>
+      <tr><td>Physics (2071)</td><td>3</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>Multiple</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>part 1</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>3</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>Multiple</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>1 & 2, 4 & 5, 6, 7</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>Set 1, 2, 3, 4, 6, 7, 10, 11, 13</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>Correction of small logic operations</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>Continued work</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>Get Items from Two Multi-Dim Arrays</td><td>✔️</td></tr>
+    </table>
+  </div>
+
+  <div class="assignment-date">
+    <h3>August 1, 2025</h3>
+    <table>
+      <tr><th>Subject</th><th>Title</th><th>Submitted</th></tr>
+      <tr><td>Physics (2071)</td><td>part 1</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>1</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>Assignment</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>3</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>Project work</td><td>✔️</td></tr>
+    </table>
+  </div>
+
+  <div class="assignment-date">
+    <h3>July 31, 2025</h3>
+    <table>
+      <tr><th>Subject</th><th>Title</th><th>Submitted</th></tr>
+      <tr><td>Chemistry (2071)</td><td>Increments</td><td>✔️</td></tr>
+      <tr><td>Physics (2071)</td><td>2</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>Model question</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>3</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>4</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>Boolean Algebra</td><td>✔️</td></tr>
+    </table>
+  </div>
+
+  <div class="assignment-date">
+    <h3>July 30, 2025</h3>
+    <table>
+      <tr><th>Subject</th><th>Title</th><th>Submitted</th></tr>
+      <tr><td>Chemistry (2071)</td><td>Alphabet</td><td>✔️</td></tr>
+      <tr><td>Physics (2071)</td><td>7</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>Project work</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>6, 8</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>4</td><td>✔️</td></tr>
+      <tr><td>Computer Science (2071)</td><td>2</td><td>✔️</td></tr>
+    </table>
+  </div>
+
+</div>
+
+</body>
+</html>

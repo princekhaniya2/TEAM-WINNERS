@@ -1,0 +1,35 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F9F9F9;
+    color: #2C2C2C;
+}
+
+.sidebar {
+    background-color: #FFFFFF;
+}
+
+.sidebar .active {
+    background-color: #D6E6FF;
+    color: #1F3F71;
+}
+
+.card {
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.calendar .selected-date {
+    background-color: #A9CBFF;
+    color: #FFFFFF;
+    border-radius: 6px;
+}
+
+.button, .link {
+    background-color: #E8F1FF;
+    color: #1F3F71;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+}

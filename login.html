@@ -1,49 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Uniglobe MIS Login</title>
-  <link rel="stylesheet" href="login.css"> 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Uniglobe Secondary School | Excellence in Education</title>
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: #f9fafc;
+    color: #222;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #4caf50;
+  }
+
+  header {
+    background: #004080;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  header .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 700;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+  }
+
+  header .logo img {
+    height: 50px;
+    width: auto;
+  }
+
+  nav a {
+    margin-left: 30px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: #7ed957;
+  }
+
+.hero {
+  background: url('main.png') no-repeat center center/cover;
+  height: 85vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 60px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+
+  }
+
+  .hero h1 {
+    font-size: 3.8rem;
+    max-width: 600px;
+    line-height: 1.1;
+  }
+
+  .hero h1 span {
+    color: #7ed957;
+  }
+
+  .hero p {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    max-width: 450px;
+    font-weight: 300;
+  }
+
+  .btn-primary {
+    margin-top: 30px;
+    background: #7ed957;
+    color: #004080;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 40px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(126, 217, 87, 0.6);
+    transition: background 0.3s ease;
+    width: max-content;
+  }
+
+  .btn-primary:hover {
+    background: #5eba3a;
+    box-shadow: 0 8px 20px rgba(94, 186, 58, 0.7);
+  }
+
+  /* Sections */
+  section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+
+  h2.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    color: #004080;
+    font-weight: 700;
+  }
+
+  .underline {
+    width: 80px;
+    height: 4px;
+    background: #7ed957;
+    margin: 0 auto 40px;
+    border-radius: 2px;
+  }
+
+  /* Features Grid */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 30px;
+  }
+
+  .feature-box {
+    background: white;
+    border-radius: 15px;
+    padding: 30px 25px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .feature-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  }
+
+  .feature-box img {
+    width: 60px;
+    margin-bottom: 20px;
+  }
+
+  .feature-box h3 {
+    margin-bottom: 12px;
+    color: #004080;
+  }
+
+  .feature-box p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  /* About */
+  .about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-text {
+    flex: 1 1 400px;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .about-img {
+    flex: 1 1 400px;
+  }
+
+  .about-img img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  }
+
+  /* Virtual Tour Section */
+  #virtual-tour {
+    text-align: center;
+  }
+
+  #virtual-tour iframe {
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    border: none;
+  }
+
+  /* Footer */
+  footer {
+    background: #002550;
+    color: #aaa;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  footer a {
+    color: #7ed957;
+    margin: 0 8px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  footer a:hover {
+    color: #a3ef75;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+
+    .hero {
+      height: 70vh;
+      padding-left: 30px;
+      padding-right: 30px;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      max-width: 100%;
+    }
+
+    section {
+      margin: 40px 15px;
+    }
+
+    .about-content {
+      flex-direction: column;
+    }
+
+    .about-img, .about-text {
+      flex: 1 1 100%;
+    }
+
+    #virtual-tour iframe {
+      height: 300px;
+    }
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">
-      <img src="image.png" alt="Uniglobe Logo">
-    </div>
-    <nav class="navigation">
-      <a href="#">Home</a>
-      <a href="#">About Us</a>
-      <a href="#">Academic Program</a>
-      <a href="#">Resources and Facilities</a>
-<button class="btn-login" onclick="window.location.href='login window.html'">Login</button>
+<header>
+  <div class="logo">
+    <img src="logougss.png" alt="Uniglobe Secondary School Logo" />
+    <span>Uniglobe SS/Collage</span>
+  </div>
+  <nav>
+    <a href="aboutus.html">About us</a>
+    <a href="resource.html">Resources and Facilities</a>
+    <a href="academic.html">Academic Programs</a>
+    <a href="login window.html">MIS</a>
+  </nav>
+</header>
 
-    </nav>
-  </header>
+<section class="hero">
+  <h1>Bringing <span>the best together</span> in Education</h1>
+  <p>Empowering future leaders through Science, Management, and Law programs.</p>
+</section>
 
-  <section class="home-section">
-    <div class="text-placeholder">
-      <h3>Uniglobe SS/Collage</h3>
-      <p>
-        Bringing the best together 
-      </p>
+<section id="about">
+  <h2 class="section-title">About Uniglobe</h2>
+  <div class="underline"></div>
+  <div class="about-content">
+    <div class="about-text">
+      <p>Located in the heart of Kathmandu, Uniglobe Secondary School offers innovative +2 programs designed to equip students with practical skills and academic excellence. Our passionate faculty and modern facilities foster a vibrant and collaborative learning environment.</p>
+      <p>Join us to be part of a community committed to lifelong success and global opportunities.</p>
     </div>
+    <div class="about-img">
+      <img src="ugss.jpeg" alt="Students learning" />
+    </div>
+  </div>
+</section>
 
-    <div class="image-container">
-      <img src="ugss.jpeg" alt="Uniglobe Building">
-      <img src="ugss1.jpeg" alt="Students in front of Uniglobe sign">
-      <img src="ugss3.png" alt="Uniglobe Logo">
+<section id="programs">
+  <h2 class="section-title">Our Programs</h2>
+  <div class="underline"></div>
+  <div class="features">
+    <div class="feature-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/2942/2942987.png" alt="Science icon" />
+      <h3>Science</h3>
+      <p>Foster your curiosity and innovation with hands-on experiments in Physics, Chemistry, Biology, and Mathematics.</p>
     </div>
+    <div class="feature-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/1867/1867503.png" alt="Management icon" />
+      <h3>Management</h3>
+      <p>Develop leadership and entrepreneurial skills through business studies, accounting, and economics.</p>
+    </div>
+    <div class="feature-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/2387/2387372.png" alt="Law icon" />
+      <h3>Law</h3>
+      <p>Build critical thinking and ethical reasoning to become a future legal professional.</p>
+    </div>
+  </div>
+</section>
 
-    <div class="text-placeholder">
-      <h3>Why Choose Us?</h3>
-      <p>
-        At Uniglobe, we believe in delivering excellence in education through the use of technology.      </p>
+<section id="facilities">
+  <h2 class="section-title">Facilities & Resources</h2>
+  <div class="underline"></div>
+  <div class="features">
+    <div class="feature-box">
+      <img src="lib.jpg" alt="Library icon" />
+      <h3>Library</h3>
+      <p>Extensive collection of books, journals, and digital resources to support your learning journey.</p>
     </div>
-  </section>
+    <div class="feature-box">
+      <img src="clab.jpg" alt="Computer Lab icon" />
+      <h3>Computer Lab</h3>
+      <p>State-of-the-art labs with high-speed internet and latest software to boost your tech skills.</p>
+    </div>
+    <div class="feature-box">
+      <img src="futsal.png" alt="Sports icon" />
+      <h3>Sports Grounds</h3>
+      <p>Indoor and outdoor sports facilities promoting fitness and teamwork.</p>
+    </div>
+    <div class="feature-box">
+      <img src="con.jpg" alt="Conference Hall icon" />
+      <h3>Conference Hall</h3>
+      <p>Modern hall equipped with multimedia and seating for over 300 for events and presentations.</p>
+    </div>
+  </div>
+</section>
+
+<section id="virtual-tour">
+  <h2 class="section-title">Virtual Tour</h2>
+  <div class="underline"></div>
+  <iframe src="https://www.youtube.com/embed/DDce7QKvRp0?si=rw_8-8lVebscaTmD" title="Virtual Tour" allowfullscreen></iframe>
+</section>
+
+<footer>
+  <p>© 2025 Uniglobe Secondary School, Kathmandu, Nepal
+  </p>
+</footer>
 
 </body>
 </html>

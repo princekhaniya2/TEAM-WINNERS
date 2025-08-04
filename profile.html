@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student MIS - Profile</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+    }
+    .sidebar {
+      height: 100vh;
+      width: 220px;
+      position: fixed;
+      background-color: #2a5d9f;
+      color: white;
+      padding-top: 30px;
+      box-sizing: border-box;
+    }
+    .sidebar .profile {
+      display: flex;
+      align-items: center;
+      padding: 0 15px 20px 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      margin-bottom: 15px;
+    }
+    .sidebar .profile img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 12px;
+      border: 2px solid white;
+    }
+    .sidebar .profile .greeting {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar ul li {
+      padding: 15px 20px;
+      cursor: pointer;
+      border-left: 4px solid transparent;
+      transition: all 0.3s ease;
+    }
+    .sidebar ul li:hover,
+    .sidebar ul li.active {
+      background-color: #1e4979;
+      border-left: 4px solid #ffcc00;
+    }
+    .sidebar ul li a {
+      text-decoration: none;
+      color: white;
+      display: block;
+      font-weight: 600;
+    }
+    .main-content {
+      margin-left: 220px;
+      padding: 30px;
+      min-height: 100vh;
+      background: white;
+      box-sizing: border-box;
+    }
+    h1 {
+      color: #333;
+      margin-top: 0;
+    }
+    .profile-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .profile-header {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 25px;
+      align-items: center;
+    }
+    .profile-header img {
+      width: 120px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 2px solid #2a5d9f;
+    }
+    .profile-info {
+      flex-grow: 1;
+    }
+    .profile-info table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      color: #333;
+    }
+    .profile-info table td {
+      padding: 6px 10px;
+      border: 1px solid #ddd;
+    }
+    .profile-info table td.label {
+      font-weight: 700;
+      background: #f0f4f9;
+      width: 30%;
+      color: #2a5d9f;
+    }
+    .section-title {
+      font-weight: 700;
+      font-size: 18px;
+      color: #2a5d9f;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #2a5d9f;
+      padding-bottom: 3px;
+    }
+    .form-group {
+      display: flex;
+      margin-bottom: 12px;
+      align-items: center;
+    }
+    .form-group label {
+      width: 160px;
+      font-weight: 600;
+      color: #555;
+    }
+    .form-group input,
+    .form-group select {
+      flex-grow: 1;
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .form-group input[readonly] {
+      background-color: #eee;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="profile">
+      <img src="pk.jpeg" alt="Profile Photo" />
+      <div class="greeting">Hi Prince</div>
+    </div>
+    <ul>
+      <li><a href="mis.html">Dashboard</a></li>
+      <li class="active"><a href="profile.html">Profile</a></li>
+      <li><a href="assignment.html">Assignment</a></li>
+      <li><a href="attendance.html">Attendance</a></li>
+      <li><a href="leave.html">Leave</a></li>
+      <li class="active"><a href="assignmenttable.html">Assignment Report</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <div class="profile-container">
+      <h1>Student Profile</h1>
+      <div class="profile-header">
+        <img src="pk.jpeg" alt="Student Photo" />
+        <div class="profile-info">
+          <table>
+            <tbody>
+              <tr>
+                <td class="label">Batch</td>
+                <td>2081/82</td>
+                <td class="label">Board</td>
+                <td>National Examinations Board</td>
+              </tr>
+              <tr>
+                <td class="label">Program</td>
+                <td>10+2</td>
+                <td class="label">Faculty</td>
+                <td>Science</td>
+              </tr>
+              <tr>
+                <td class="label">Course</td>
+                <td>(AY/2081) Day I</td>
+                <td class="label">SEE Symbol No.</td>
+                <td>03003195M</td>
+              </tr>
+              <tr>
+                <td class="label">Barcode Number</td>
+                <td>11390</td>
+                <td class="label">Attendance ID</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td class="label">University/Bord Reg.No</td>
+                <td>---</td>
+                <td class="label">SEE GPA</td>
+                <td>4.00</td>
+              </tr>
+              <tr>
+                <td class="label">NEB Symbol No-XI</td>
+                <td>---</td>
+                <td class="label">NEB Symbol No-XII</td>
+                <td>---</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h2 class="section-title">Personal Details</h2>
+      <div>
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" value="Prince Khaniya" readonly />
+        </div>
+        <div class="form-group">
+          <label for="devanagari">In Devanagari</label>
+          <input type="text" id="devanagari" value="प्रिन्स खनिया" readonly />
+        </div>
+        <div class="form-group">
+          <label for="dob">DOB</label>
+          <input type="date" id="dob" value="2008-04-08" />
+        </div>
+        <div class="form-group">
+          <label for="bloodgroup">Blood Group</label>
+          <input type="text" id="bloodgroup" value="A+" readonly />
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select id="gender">
+            <option selected>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="nationality">Nationality</label>
+          <input type="text" id="nationality" value="Nepali" readonly />
+        </div>
+        <div class="form-group">
+          <label for="mobile">Student's Mobile</label>
+          <input type="text" id="mobile" value="9749468888" readonly />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" value="princekhaniya81@uniglobecollege.edu.np" readonly />
+        </div>
+        <div class="form-group">
+          <label for="nearestbus">Nearest Bus Station</label>
+          <input type="text" id="nearestbus" value="manamiju pul" readonly />
+        </div>
+        <div class="form-group">
+          <label for="stayingwith">Staying with</label>
+          <select id="stayingwith">
+            <option selected>Parents</option>
+            <option>Guardian</option>
+            <option>Hostel</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="previousschool">Previous School's Name</label>
+          <input type="text" id="previousschool" value="Api School" readonly />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

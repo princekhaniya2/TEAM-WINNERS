@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student MIS - Attendance</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      color: #333;
+    }
+    .sidebar {
+      height: 100vh;
+      width: 220px;
+      position: fixed;
+      background-color: #2a5d9f;
+      color: white;
+      padding-top: 30px;
+      box-sizing: border-box;
+    }
+    .sidebar .profile {
+      display: flex;
+      align-items: center;
+      padding: 0 15px 20px 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      margin-bottom: 15px;
+    }
+    .sidebar .profile img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 12px;
+      border: 2px solid white;
+    }
+    .sidebar .profile .greeting {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar ul li {
+      padding: 15px 20px;
+      cursor: pointer;
+      border-left: 4px solid transparent;
+      transition: all 0.3s ease;
+    }
+    .sidebar ul li:hover,
+    .sidebar ul li.active {
+      background-color: #1e4979;
+      border-left: 4px solid #ffcc00;
+    }
+    .sidebar ul li a {
+      text-decoration: none;
+      color: white;
+      display: block;
+      font-weight: 600;
+    }
+    .main-content {
+      margin-left: 220px;
+      padding: 20px 30px;
+      min-height: 100vh;
+      box-sizing: border-box;
+      background: white;
+    }
+    .header {
+      font-size: 28px;
+      font-weight: 700;
+      color: #2a5d9f;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #ff9800;
+      padding-bottom: 5px;
+    }
+    table.attendance-calendar {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 14px;
+      color: #444;
+    }
+    table.attendance-calendar th,
+    table.attendance-calendar td {
+      border: 1px solid #ddd;
+      padding: 10px 6px;
+      text-align: center;
+      vertical-align: middle;
+      height: 60px;
+      user-select: none;
+      word-wrap: break-word;
+    }
+    table.attendance-calendar th {
+      background-color: #2a5d9f;
+      color: white;
+      font-weight: 700;
+    }
+    table.attendance-calendar td.holiday {
+      background-color: #f8d7da;
+      color: #721c24;
+      font-weight: 700;
+    }
+    table.attendance-calendar td.present {
+      background-color: #d4edda;
+      color: #155724;
+      font-weight: 700;
+    }
+    table.attendance-calendar td.absent {
+      background-color: #fff3cd;
+      color: #856404;
+      font-weight: 700;
+    }
+    .legend {
+      margin-top: 15px;
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+    }
+    .legend span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .legend .holiday-box,
+    .legend .present-box,
+    .legend .absent-box {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      border-radius: 3px;
+    }
+    .legend .holiday-box {
+      background-color: #f8d7da;
+      border: 1px solid #f5c6cb;
+    }
+    .legend .present-box {
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+    }
+    .legend .absent-box {
+      background-color: #fff3cd;
+      border: 1px solid #ffeeba;
+    }
+    td.empty {
+      background: #f4f6f9;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="profile">
+      <img src="pk.jpeg" alt="Profile Photo" />
+      <div class="greeting">Hi Prince</div>
+    </div>
+    <ul>
+      <li><a href="mis.html">Dashboard</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="assignment.html">Assignment</a></li>
+      <li class="active"><a href="attendance.html">Attendance</a></li>
+      <li><a href="leave.html">Leave</a></li>
+      <li class="active"><a href="assignmenttable.html">Assignment Report</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <div class="header">Attendance - August 2025</div>
+    <table class="attendance-calendar" aria-label="Attendance calendar for August 2025">
+      <thead>
+        <tr>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="present">1<br>Present</td>
+          <td class="holiday">2<br>Holiday</td>
+        </tr>
+        <tr>
+          <td class="absent">3<br>Absent</td>
+          <td class="present">4<br>Present</td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="holiday">9<br>Holiday</td>
+        </tr>
+        <tr>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="holiday">16<br>Holiday</td>
+        </tr>
+        <tr>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="holiday">23<br>Holiday</td>
+        </tr>
+        <tr>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="holiday">30<br>Holiday</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="legend">
+      <span><div class="holiday-box"></div> Holiday (Saturday)</span>
+      <span><div class="present-box"></div> Present</span>
+      <span><div class="absent-box"></div> Absent</span>
+    </div>
+  </div>
+</body>
+</html>
